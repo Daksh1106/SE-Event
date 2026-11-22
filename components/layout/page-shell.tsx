@@ -1,5 +1,5 @@
 // Shared page frame: navbar, centred content column and footer (NFR-1)
-import { Navbar } from '@/components/navbar'
+import { Navbar } from '@/components/layout/navbar'
 
 interface PageShellProps {
   children: React.ReactNode

@@ -10,8 +10,8 @@ import { createClient } from '@/lib/supabase/server'
 import { formatISTDateTime } from '@/lib/datetime'
 import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { AttendanceForm } from './attendance-form'
-import { CertificateButton } from './certificate-button'
+import { AttendanceForm } from './_components/attendance-form'
+import { CertificateButton } from './_components/certificate-button'
 
 export const metadata: Metadata = {
   title: 'Manage Event | College Event Hub',

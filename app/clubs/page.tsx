@@ -4,8 +4,8 @@
 import type { Metadata } from 'next'
 import { createClient } from '@/lib/supabase/server'
 import { formatISTDateTime } from '@/lib/datetime'
-import { PageShell } from '@/components/page-shell'
-import { ClubsDirectory } from '@/components/clubs-directory'
+import { PageShell } from '@/components/layout/page-shell'
+import { ClubsDirectory } from '@/components/features/clubs/clubs-directory'
 import { OFFICIAL_CLUBS } from '@/lib/official-clubs'
 
 export const metadata: Metadata = {

@@ -4,7 +4,7 @@
 import { useState, useTransition } from 'react'
 import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
-import { cancelRegistrationAction } from '@/app/events/[id]/actions'
+import { cancelRegistrationAction } from '@/app/events/[id]/_actions/registration-actions'
 
 interface CancelButtonProps {
   registrationId: string

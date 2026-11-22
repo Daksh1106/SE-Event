@@ -7,12 +7,12 @@ import Link from 'next/link'
 import { requireRole } from '@/lib/auth'
 import { createClient } from '@/lib/supabase/server'
 import { formatISTDateTime, hasPassed, startsWithinHours } from '@/lib/datetime'
-import { PageShell } from '@/components/page-shell'
+import { PageShell } from '@/components/layout/page-shell'
 import { Button, buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import type { MyRegistrationRow } from '@/types/database'
-import { markAlertReadAction, markAllAlertsReadAction } from './actions'
-import { CancelButton } from './cancel-button'
+import { markAlertReadAction, markAllAlertsReadAction } from './_actions/my-events-actions'
+import { CancelButton } from './_components/cancel-registration-button'
 
 export const metadata: Metadata = {
   title: 'My Events | College Event Hub',

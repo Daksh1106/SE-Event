@@ -7,12 +7,12 @@ import { notFound } from 'next/navigation'
 import { getCurrentProfile } from '@/lib/auth'
 import { createClient } from '@/lib/supabase/server'
 import { formatISTDateTime, hasPassed } from '@/lib/datetime'
-import { PageShell } from '@/components/page-shell'
+import { PageShell } from '@/components/layout/page-shell'
 import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { LiveSeats } from './live-seats'
-import { RegistrationPanel } from './registration-panel'
-import { ShareButton } from './share-button'
+import { LiveSeats } from './_components/live-seats'
+import { RegistrationPanel } from './_components/registration-panel'
+import { ShareButton } from './_components/share-button'
 
 const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
 

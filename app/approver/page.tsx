@@ -3,7 +3,7 @@ import { Metadata } from 'next'
 import { requireRole } from '@/lib/auth'
 import { createClient } from '@/lib/supabase/server'
 import { formatISTDateTime } from '@/lib/datetime'
-import { ApprovalCard, type ApprovalCardEvent } from './approval-card'
+import { ApprovalCard, type ApprovalCardEvent } from './_components/approval-card'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
 export const metadata: Metadata = {

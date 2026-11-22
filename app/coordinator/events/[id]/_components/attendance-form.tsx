@@ -4,7 +4,7 @@
 import { useState, useTransition } from 'react'
 import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
-import { saveAttendanceAction } from './actions'
+import { saveAttendanceAction } from '../_actions/coordinator-event-actions'
 
 export interface AttendanceRow {
   registrationId: string

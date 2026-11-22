@@ -3,7 +3,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowLeft, CalendarDays, UsersRound } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { LoginForm } from './login-form'
+import { LoginForm } from '../_components/login-form'
 import { buttonVariants } from '@/components/ui/button'
 
 export const metadata: Metadata = {

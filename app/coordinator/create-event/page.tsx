@@ -2,7 +2,7 @@
 import { Metadata } from 'next'
 import { requireRole } from '@/lib/auth'
 import { createClient } from '@/lib/supabase/server'
-import { CreateEventForm } from './create-event-form'
+import { CreateEventForm } from './_components/create-event-form'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
 export const metadata: Metadata = {

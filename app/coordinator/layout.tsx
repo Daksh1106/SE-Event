@@ -2,7 +2,7 @@
 // Protected by requireRole(['coordinator', 'admin'])
 
 import { requireRole } from '@/lib/auth'
-import { PageShell } from '@/components/page-shell'
+import { PageShell } from '@/components/layout/page-shell'
 
 export default async function CoordinatorLayout({
   children,

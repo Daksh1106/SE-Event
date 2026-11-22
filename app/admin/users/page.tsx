@@ -2,7 +2,7 @@
 import { Metadata } from 'next'
 import { requireRole } from '@/lib/auth'
 import { createClient } from '@/lib/supabase/server'
-import { CreateUserForm } from './create-user-form'
+import { CreateUserForm } from './_components/create-user-form'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
 export const metadata: Metadata = {

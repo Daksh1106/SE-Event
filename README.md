@@ -89,9 +89,10 @@ Deploy: push to GitHub, import the repo in Vercel, add the same three environmen
 ## Project layout
 
 ```
-app/            pages, server actions and API routes (events, my-events, certificates, clubs,
-                coordinator, approver, admin, login, signup)
-components/     navbar, page shell, seat badge, shadcn/ui
+app/            Next.js routes, layouts and route-private server actions/components
+components/layout/  shared navigation and page frames
+components/features/ feature UI such as clubs directory and seat badges
+components/ui/  shadcn/ui primitives
 public/logos/   university logo and supplied club logos
 lib/            Supabase clients, role guard, dates (IST), seat wording, PDF builders, validation
 types/          database types

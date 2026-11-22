@@ -4,7 +4,7 @@
 
 import { useEffect, useState } from 'react'
 import { seatSummary } from '@/lib/seats'
-import { SeatsBadge } from '@/components/seats-badge'
+import { SeatsBadge } from '@/components/features/events/seats-badge'
 
 interface LiveSeatsProps {
   eventId: string

@@ -6,7 +6,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { getCurrentProfile } from '@/lib/auth'
 import { createClient } from '@/lib/supabase/server'
-import { logoutAction } from '@/app/(auth)/actions'
+import { logoutAction } from '@/app/(auth)/_actions/auth-actions'
 import { Button, buttonVariants } from '@/components/ui/button'
 import type { AppRole } from '@/types/database'
 

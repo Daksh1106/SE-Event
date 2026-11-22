@@ -14,8 +14,8 @@ Supabase: Auth (who are you) + Postgres (row level security + functions) + Stora
 
 The browser never queries the database. Client components call server actions or `/api/...`
 routes, which call Supabase as the signed-in user. The secret (service role) key is used only in
-two places: creating accounts (`app/(auth)/actions.ts`, `app/admin/users/actions.ts`) and
-uploading certificate PDFs (`app/coordinator/events/[id]/actions.ts`).
+two places: creating accounts (`app/(auth)/_actions/auth-actions.ts`, `app/admin/users/_actions/manage-user-actions.ts`) and
+uploading certificate PDFs (`app/coordinator/events/[id]/_actions/coordinator-event-actions.ts`).
 
 ## Three lines of defence
 

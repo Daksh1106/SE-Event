@@ -67,7 +67,6 @@ export async function generateCertificatesAction(eventId: string): Promise<Manag
     clubs: { name: string } | null
   }
 
-  // Authorisation happens inside this function (coordinator of the club, or admin)
   const { data: rows, error: rowsError } = await supabase.rpc('get_event_registrations', {
     p_event_id: parsedId.data,
   })
@@ -84,7 +83,7 @@ export async function generateCertificatesAction(eventId: string): Promise<Manag
 
   let issued = 0
   const failures: string[] = []
-  const BATCH_SIZE = 8 // a few at a time keeps 200+ certificates fast without overloading storage
+  const BATCH_SIZE = 8
 
   for (let i = 0; i < attended.length; i += BATCH_SIZE) {
     await Promise.all(
@@ -97,7 +96,6 @@ export async function generateCertificatesAction(eventId: string): Promise<Manag
             clubName,
           })
 
-          // One private folder per student; the storage policy only lets that student read it (NFR-7)
           const path = `${row.student_id}/${event.id}.pdf`
           const { error: uploadError } = await admin.storage
             .from('certificates')

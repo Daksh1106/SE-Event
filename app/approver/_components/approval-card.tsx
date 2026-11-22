@@ -2,7 +2,7 @@
 'use client'
 
 import { useState, useTransition } from 'react'
-import { decideEventAction } from './actions'
+import { decideEventAction } from '../_actions/approval-actions'
 import { formatISTDateTime } from '@/lib/datetime'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'

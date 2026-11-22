@@ -3,7 +3,7 @@ import { Suspense } from 'react'
 import Link from 'next/link'
 import { ArrowRight, Award, CalendarDays, CircleCheck, Compass, Sparkles, UsersRound, type LucideIcon } from 'lucide-react'
 import { getCurrentProfile } from '@/lib/auth'
-import { Navbar } from '@/components/navbar'
+import { Navbar } from '@/components/layout/navbar'
 import { buttonVariants } from '@/components/ui/button'
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 

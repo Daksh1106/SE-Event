@@ -4,7 +4,7 @@
 import { useState, useTransition } from 'react'
 import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
-import { generateCertificatesAction } from './actions'
+import { generateCertificatesAction } from '../_actions/coordinator-event-actions'
 
 interface CertificateButtonProps {
   eventId: string

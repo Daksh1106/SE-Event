@@ -66,21 +66,21 @@
 
 ---
 
-### app/(auth)/actions.ts
+### app/(auth)/_actions/auth-actions.ts
 - Server Actions for signup, login, and logout executing strictly on the server.
 - Uses synthetic email `{usn}@collegehub.org` and creates accounts with the admin API (`email_confirm: true`), because public signups are disabled in Supabase.
 - Detects duplicate USNs by Supabase's `email_exists` / `user_already_exists` error codes (TC-2) and gives a clear message for wrong credentials (TC-3).
 
 ---
 
-### app/(auth)/signup/signup-form.tsx & app/(auth)/signup/page.tsx
+### app/(auth)/_components/signup-form.tsx & app/(auth)/signup/page.tsx
 - Client form and server page for student registration (FR-1, TC-1, TC-2, NFR-1, NFR-2).
 - Provides instant client-side feedback, uppercase USN styling, and accessible form labels using shadcn/ui.
 - Automatically connects with `signupAction` to create the auth account and trigger profile generation.
 
 ---
 
-### app/(auth)/login/login-form.tsx & app/(auth)/login/page.tsx
+### app/(auth)/_components/login-form.tsx & app/(auth)/login/page.tsx
 - Client form and server page for student and staff authentication (FR-2, TC-3, NFR-1, NFR-2).
 - Accepts USN and password, provides clear error alerts, and redirects to home on successful authentication.
 - Accessible and responsive on mobile viewports (360px+) complying with NFR-1.
@@ -139,19 +139,19 @@
 ### app/events/[id]/page.tsx
 - Event page: description, venue, fee, contact, deadline, live seats, the student's own registration status and waitlist position.
 
-### app/events/[id]/actions.ts
+### app/events/[id]/_actions/registration-actions.ts
 - Server actions `registerAction` and `cancelRegistrationAction`. They check the role, then call the Postgres functions; every rule lives in the database.
 
-### app/events/[id]/registration-panel.tsx, live-seats.tsx, share-button.tsx
+### app/events/[id]/_components/registration-panel.tsx, live-seats.tsx, share-button.tsx
 - Client components: Register / Join waitlist / Cancel buttons; a counter that polls the seats API every 8 s; the WhatsApp share button (FR-16).
 
 ### app/api/events/[id]/seats/route.ts
 - Server route returning live seat counts as JSON, so the browser never talks to the database directly.
 
-### lib/seats.ts, components/seats-badge.tsx
+### lib/seats.ts, components/features/events/seats-badge.tsx
 - Wording and colours for "N seats left", "Only 3 seats left", "Full - waitlist open", "Registration closed".
 
-### components/navbar.tsx, components/page-shell.tsx
+### components/layout/navbar.tsx, components/layout/page-shell.tsx
 - Role-aware navigation switches to a phone-friendly Menu dropdown below the large-screen breakpoint. `PageShell` provides the shared page frame and footer.
 
 ### lib/supabase/middleware.ts
@@ -165,13 +165,13 @@
 - Student-only page (`requireRole(['student'])`). One call to `get_my_registrations()` returns every registration with its waitlist position; the page splits them into Registered, Waitlisted and Past.
 - Shows a banner for confirmed events starting within 24 hours and the list of alerts, including "a seat opened up and you are now confirmed" written by `cancel_registration`.
 
-### app/my-events/actions.ts
+### app/my-events/_actions/my-events-actions.ts
 - `markAlertReadAction` and `markAllAlertsReadAction`: the only thing a student can change on an alert is `is_read` (column privilege from `authorization_and_alert_hardening.sql` + RLS).
 
-### app/my-events/cancel-button.tsx
+### app/my-events/_components/cancel-registration-button.tsx
 - Client button that confirms, then calls `cancelRegistrationAction`. Cancelling a confirmed seat promotes the first waitlisted student inside the database.
 
-### components/navbar.tsx
+### components/layout/navbar.tsx
 - Red badge on "My Events" showing the number of unread alerts.
 
 ### lib/datetime.ts
@@ -190,10 +190,10 @@
 ### app/coordinator/events/[id]/page.tsx
 - Manage one event: counts, attendance checklist, certificate button, waitlist in order. Opening another club's event shows "Access denied" and no student data (TC-17).
 
-### app/coordinator/events/[id]/actions.ts
+### app/coordinator/events/[id]/_actions/coordinator-event-actions.ts
 - `saveAttendanceAction` calls `mark_attendance`. `generateCertificatesAction` builds one PDF per attended student, uploads it to storage as `<student id>/<event id>.pdf`, then calls `record_certificate`. Students are processed 8 at a time.
 
-### app/coordinator/events/[id]/attendance-form.tsx, certificate-button.tsx
+### app/coordinator/events/[id]/_components/attendance-form.tsx, certificate-button.tsx
 - Client components: the tick list with Select all / Clear all / Save, and the Generate certificates button. Students who already have a certificate cannot be un-ticked.
 
 ### app/coordinator/events/[id]/pdf/route.ts
@@ -215,7 +215,7 @@
 ### app/clubs/page.tsx
 - Server-side upcoming-event data loading and ID matching for the official read-only directory (FR-15).
 
-### components/clubs-directory.tsx
+### components/features/clubs/clubs-directory.tsx
 - Interactive client-side search and filters for active clubs, upcoming events, and listed faculty mentors.
 - Displays supplied club logos, source-aligned mentor details and upcoming events without changing club data (FR-15).
 
@@ -235,7 +235,7 @@
 
 ## JSS STU visual refresh and official clubs
 
-### app/globals.css, components/navbar.tsx, components/page-shell.tsx
+### app/globals.css, components/layout/navbar.tsx, components/layout/page-shell.tsx
 - Shared JSS-inspired orange, navy and warm-neutral theme; Jost headings, Lato body text, university logo in navigation, responsive page frame and footer.
 
 ### app/(auth)/login/page.tsx, app/(auth)/signup/page.tsx
